@@ -23,10 +23,10 @@ GameObject:
   - component: {fileID: 50871647238154520}
   - component: {fileID: 61248026436112844}
   - component: {fileID: 95932048896895594}
-  - component: {fileID: 114351524775824300}
+  - component: {fileID: 114115367722210548}
   m_Layer: 10
   m_Name: CharacterMario
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1843688399536276}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -136.33, y: -349.457, z: 0}
+  m_LocalPosition: {x: -180, y: 33, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -58,12 +58,12 @@ Rigidbody2D:
   m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 100
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &61248026436112844
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -107,7 +107,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114351524775824300
+--- !u!114 &114115367722210548
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,12 +115,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1843688399536276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e13da868def204504ae21a2d13c65420, type: 3}
+  m_Script: {fileID: 11500000, guid: 12f9570e569b549fdb0ff43ca6aede87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadRotacion: 50
-  velocidadLineal: 1
-  jumpForce: 1000
+  linealSpeed: 0
+  jumpForce: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!212 &212879090587587342
 SpriteRenderer:
   m_ObjectHideFlags: 1
