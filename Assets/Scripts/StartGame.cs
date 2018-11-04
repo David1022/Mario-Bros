@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class StartGame : MonoBehaviour
 {
 
-    private string SCREEN_TO_OPEN = "PlayScreen";
+    private const string SCREEN_TO_OPEN = "PlayScreen";
 
     public void LaunchPlayScreen()
     {

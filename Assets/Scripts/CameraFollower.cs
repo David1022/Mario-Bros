@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraFollower : MonoBehaviour {
 
     public Transform target;
-    public Vector3 offset = new Vector3(0.3f, 1.0f, -10.0f);
+    public Vector3 offset = new Vector3(0.3f, 100f, -10.0f);
     public float dampTime = 0.3f;
     public Vector3 velocity = Vector3.zero;
 

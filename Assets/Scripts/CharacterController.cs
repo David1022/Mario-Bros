@@ -10,8 +10,10 @@ public enum MovementDirection {
 
 public class CharacterController : MonoBehaviour {
 
-    public float velocidadRotacion;
-    public float velocidadLineal;
+    private const float LINEAL_SPEED = 100f;
+    private const float JUMP_FORCE = 40000;
+    private const float DISTANCE_TO_GROUND = 10f;
+    public float linealSpeed;
     public float jumpForce;
     private Rigidbody2D rgbody;
     private MovementDirection movementDirection;
@@ -21,10 +23,30 @@ public class CharacterController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         rgbody = GetComponent<Rigidbody2D>();
-        velocidadRotacion = 50f;
-        velocidadLineal = 0.7f;
-        jumpForce = 400f;
+        linealSpeed = LINEAL_SPEED;
+        jumpForce = JUMP_FORCE;
         movementDirection = MovementDirection.RIGHT;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            MueveIzquierda();
+
+        }
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            MueveDerecha();
+        }
+        else
+        {
+        }
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            Jump();
+        }
     }
 
     public void MueveDerecha() {
@@ -32,7 +54,7 @@ public class CharacterController : MonoBehaviour {
             GetComponent<SpriteRenderer>().flipX = false;
             movementDirection = MovementDirection.RIGHT;
         }
-        rgbody.velocity = new Vector2(transform.right.x * velocidadLineal, transform.right.y);
+        rgbody.velocity = new Vector2(transform.right.x * linealSpeed, transform.right.y);
     }
 
     public void MueveIzquierda()
@@ -42,18 +64,7 @@ public class CharacterController : MonoBehaviour {
             GetComponent<SpriteRenderer>().flipX = true;
             movementDirection = MovementDirection.LEFT;
         }
-        rgbody.velocity = new Vector2(-(transform.right.x * velocidadLineal), transform.right.y);
-    }
-
-    public void RotaDerecha()
-    {
-        //rigidbody.AddForce(Vector2.right, ForceMode2D.Force);
-        rgbody.MoveRotation(rgbody.rotation - velocidadLineal * Time.deltaTime);
-    }
-
-    public void RotaIzquierda()
-    {
-        rgbody.MoveRotation(rgbody.rotation + velocidadLineal * Time.deltaTime);
+        rgbody.velocity = new Vector2(-(transform.right.x * linealSpeed), transform.right.y);
     }
 
     public void Jump() {
@@ -65,32 +76,18 @@ public class CharacterController : MonoBehaviour {
 
     private bool IsTouchingTheGround()
     {
-        if (Physics2D.Raycast(this.transform.position, Vector2.down, 0.2f, groundLayer)) {
+        if (Physics2D.Raycast(this.transform.position, Vector2.down, DISTANCE_TO_GROUND, groundLayer)) {
             return true;
         } else {
             return false;
         }
     }
 
-    // Update is called once per frame
-    void Update () {
-        if(Input.GetKey(KeyCode.LeftArrow)) {
-            MueveIzquierda();
-
-        } else if (Input.GetKey(KeyCode.RightArrow))
-        {
-            MueveDerecha();
-        } else {
-        }if (Input.GetKeyDown(KeyCode.UpArrow)) {
-            Jump();
-        } else {
-
-        }
-    }
-    private void FixedUpdate()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (rigidbody.velocity.x < velocidadLineal) {
-          //  rigidbody.velocity = new Vector2(velocidadLineal, rigidbody.velocity.y);
-        //}
+        if (collision.CompareTag("Coin")) {
+            Destroy(collision.gameObject);
+            GameManager.addCoin();
+        }
     }
 }

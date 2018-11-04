@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
 
-    public float velocidadLineal;
+    private const float LINEAL_SPEED = 40f;
+
+    public float linealSpeed;
     private Rigidbody2D rgbody;
 
     public LayerMask groundLayer;
@@ -13,7 +15,7 @@ public class EnemyController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         rgbody = GetComponent<Rigidbody2D>();
-        velocidadLineal = 0.3f;
+        linealSpeed = LINEAL_SPEED;
     }
 
     // Update is called once per frame
@@ -23,13 +25,13 @@ public class EnemyController : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        rgbody.velocity = new Vector2(velocidadLineal, 0);
+        rgbody.velocity = new Vector2(linealSpeed, 0);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        ContactPoint2D point = collision.GetContact(0);
-        velocidadLineal = (-1) * velocidadLineal;
-        collision.otherCollider.CompareTag("Player");
+        if (collision.collider.CompareTag("Pipeline")) {
+            linealSpeed = (-1) * linealSpeed;
+        }
     }
 }
