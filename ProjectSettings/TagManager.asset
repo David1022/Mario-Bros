@@ -14,9 +14,9 @@ TagManager:
   - 
   - 
   - Background
-  - Ground
+  - Foreground
   - Character
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -44,9 +44,12 @@ TagManager:
   - name: Background
     uniqueID: 4188105083
     locked: 0
-  - name: Ground
+  - name: Foreground
     uniqueID: 398210615
     locked: 0
   - name: Character
     uniqueID: 3685226551
+    locked: 0
+  - name: Enemy
+    uniqueID: 302617785
     locked: 0
