@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4962629351258252}
   - component: {fileID: 212588713545945376}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightPipelineTube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4635159338226978}
   - component: {fileID: 212627815754766058}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightPipelineExit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4947544542613968}
   - component: {fileID: 61763555335976624}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PipelineSimple
   m_TagString: Pipeline
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4042341655072338}
   - component: {fileID: 212918345420086846}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftPipelineTube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4340215365008676}
   - component: {fileID: 212321956293349356}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftPipelineExit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
