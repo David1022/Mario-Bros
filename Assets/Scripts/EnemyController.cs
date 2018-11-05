@@ -30,8 +30,13 @@ public class EnemyController : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Pipeline")) {
+        if (collision.collider.CompareTag("Pipeline") || collision.collider.CompareTag("Start")) {
             linealSpeed = (-1) * linealSpeed;
+            if(linealSpeed > 0) {
+                GetComponent<SpriteRenderer>().flipX = true;
+            } else {
+                GetComponent<SpriteRenderer>().flipX = false;
+            }
         }
     }
 }

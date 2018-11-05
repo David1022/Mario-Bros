@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum MovementDirection {
     RIGHT,
@@ -13,8 +14,12 @@ public class MarioController : MonoBehaviour {
     private const float LINEAL_SPEED = 70f;
     private const float JUMP_FORCE = 40000;
     private const float DISTANCE_TO_GROUND = 10f;
+
     public float linealSpeed;
     public float jumpForce;
+
+    public Text scoreLabel;
+    private int coin;
     private Rigidbody2D rgbody;
     private MovementDirection movementDirection;
 
@@ -22,6 +27,8 @@ public class MarioController : MonoBehaviour {
         
 	// Use this for initialization
 	void Start () {
+        coin = 0;
+        scoreLabel.text = "Score : " + coin;
         rgbody = GetComponent<Rigidbody2D>();
         linealSpeed = LINEAL_SPEED;
         jumpForce = JUMP_FORCE;
@@ -89,7 +96,13 @@ public class MarioController : MonoBehaviour {
     {
         if (collision.CompareTag("Coin")) {
             Destroy(collision.gameObject);
-            GameManager.addCoin();
+            AddCoin();
         }
+    }
+
+    private void AddCoin()
+    {
+        coin++;
+        scoreLabel.text = "Score : " + coin;
     }
 }
