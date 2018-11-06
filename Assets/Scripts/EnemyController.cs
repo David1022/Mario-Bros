@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour {
 
     private const float LINEAL_SPEED = 40f;
+    private const float DISTANCE_TO_GROUND = 10f;
 
     public float linealSpeed;
     private Rigidbody2D rgbody;
@@ -20,7 +21,18 @@ public class EnemyController : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+    }
 
+    private bool IsTouchingTheGround()
+    {
+        if (Physics2D.Raycast(this.transform.position, Vector2.down, DISTANCE_TO_GROUND, groundLayer))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     private void FixedUpdate()
@@ -30,13 +42,19 @@ public class EnemyController : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Pipeline") || collision.collider.CompareTag("Start")) {
-            linealSpeed = (-1) * linealSpeed;
-            if(linealSpeed > 0) {
-                GetComponent<SpriteRenderer>().flipX = true;
-            } else {
-                GetComponent<SpriteRenderer>().flipX = false;
-            }
+        ChangeDirection();
+    }
+
+    private void ChangeDirection()
+    {
+        linealSpeed = (-1) * linealSpeed;
+        if (linealSpeed > 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
         }
     }
 }
