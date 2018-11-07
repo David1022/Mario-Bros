@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public enum MovementDirection {
@@ -14,9 +15,11 @@ public class MarioController : MonoBehaviour {
     private const float LINEAL_SPEED = 70f;
     private const float JUMP_FORCE = 40000;
     private const float DISTANCE_TO_GROUND = 10f;
+    private const string SCREEN_TO_OPEN = "FinishScreen";
 
     public float linealSpeed;
     public float jumpForce;
+    public bool isAlive;
 
     private Animator anim;
     public Text scoreLabel;
@@ -25,12 +28,13 @@ public class MarioController : MonoBehaviour {
     private MovementDirection movementDirection;
 
     public LayerMask groundLayer;
-        
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
         anim = GetComponent<Animator>();
         anim.SetBool("isAlive", true);
         anim.SetBool("grounded", true);
+        isAlive = true;
 
         coin = 0;
         scoreLabel.text = "Score : " + coin;
@@ -112,9 +116,36 @@ public class MarioController : MonoBehaviour {
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            if (collision.collider.CompareTag("EnemyBoxCollider"))
+            {
+                Destroy(collision.gameObject);
+
+            }
+            else if (collision.collider.CompareTag("EnemyCircleCollider"))
+            {
+                GameOver();
+            }
+        } else if (collision.gameObject.CompareTag("DeadZone")) {
+            GameOver();
+        }
+    }
+
     private void AddCoin()
     {
         coin++;
         scoreLabel.text = "Score : " + coin;
     }
+
+    private void GameOver()
+    {
+        isAlive = false;
+        anim.SetBool("isAlive", isAlive);
+        SceneManager.LoadScene(SCREEN_TO_OPEN);
+
+    }
+
 }

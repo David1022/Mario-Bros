@@ -8,6 +8,9 @@ TagManager:
   - Coin
   - Enemy
   - Start
+  - EnemyBoxCollider
+  - EnemyCircleCollider
+  - DeadZone
   layers:
   - Default
   - TransparentFX

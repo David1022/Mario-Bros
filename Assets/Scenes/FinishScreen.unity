@@ -302,7 +302,7 @@ Prefab:
     - target: {fileID: 224689648553122662, guid: 5a8f65d1ec48a4ced978d0add0ccea7b,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 0.000005722
       objectReference: {fileID: 0}
     - target: {fileID: 224689648553122662, guid: 5a8f65d1ec48a4ced978d0add0ccea7b,
         type: 2}
@@ -312,12 +312,12 @@ Prefab:
     - target: {fileID: 224689648553122662, guid: 5a8f65d1ec48a4ced978d0add0ccea7b,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 192.06
+      value: 213.8
       objectReference: {fileID: 0}
     - target: {fileID: 224689648553122662, guid: 5a8f65d1ec48a4ced978d0add0ccea7b,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 70.52
+      value: 70.5
       objectReference: {fileID: 0}
     - target: {fileID: 224689648553122662, guid: 5a8f65d1ec48a4ced978d0add0ccea7b,
         type: 2}
@@ -348,6 +348,11 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114161930410404506, guid: 5a8f65d1ec48a4ced978d0add0ccea7b,
+        type: 2}
+      propertyPath: m_Text
+      value: Game Over
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a8f65d1ec48a4ced978d0add0ccea7b, type: 2}
