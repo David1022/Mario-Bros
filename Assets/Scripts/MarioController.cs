@@ -18,6 +18,7 @@ public class MarioController : MonoBehaviour {
     public float linealSpeed;
     public float jumpForce;
 
+    private Animator anim;
     public Text scoreLabel;
     private int coin;
     private Rigidbody2D rgbody;
@@ -27,6 +28,10 @@ public class MarioController : MonoBehaviour {
         
 	// Use this for initialization
 	void Start () {
+        anim = GetComponent<Animator>();
+        anim.SetBool("isAlive", true);
+        anim.SetBool("grounded", true);
+
         coin = 0;
         scoreLabel.text = "Score : " + coin;
         rgbody = GetComponent<Rigidbody2D>();
@@ -38,6 +43,7 @@ public class MarioController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        UpdateAnimsState();
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             MueveIzquierda();
@@ -56,6 +62,13 @@ public class MarioController : MonoBehaviour {
         }
     }
 
+    private void UpdateAnimsState()
+    {
+        anim.SetFloat("speed", Mathf.Abs(rgbody.velocity.x));
+        anim.SetBool("grounded", IsTouchingTheGround());
+
+    }
+
     public void MueveDerecha() {
         if (movementDirection == MovementDirection.LEFT) {
             GetComponent<SpriteRenderer>().flipX = false;
@@ -72,7 +85,6 @@ public class MarioController : MonoBehaviour {
             GetComponent<SpriteRenderer>().flipX = true;
             movementDirection = MovementDirection.LEFT;
         }
-        //rgbody.velocity = new Vector2(-(transform.right.x * linealSpeed), transform.right.y);
         rgbody.velocity = new Vector2(-(transform.right.x * linealSpeed), rgbody.velocity.y);
     }
 
