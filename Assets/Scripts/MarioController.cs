@@ -29,6 +29,8 @@ public class MarioController : MonoBehaviour {
 
     public LayerMask groundLayer;
 
+    public GameObject superMushroom;
+
     // Use this for initialization
     void Start () {
         anim = GetComponent<Animator>();
@@ -129,9 +131,20 @@ public class MarioController : MonoBehaviour {
             {
                 GameOver();
             }
-        } else if (collision.gameObject.CompareTag("DeadZone")) {
+        }
+        else if (collision.gameObject.CompareTag("DeadZone"))
+        {
             GameOver();
         }
+        else if(collision.collider.CompareTag("BrickBottomCollider"))
+        {
+            CreateSuperMushroom(collision.collider.GetComponent<Transform>());
+        }
+    }
+
+    private void CreateSuperMushroom(Transform transform)
+    {
+        Instantiate(superMushroom, transform.position + new Vector3(0,5,0), transform.rotation);
     }
 
     private void AddCoin()

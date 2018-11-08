@@ -27,4 +27,21 @@ public class GameManager : MonoBehaviour {
     void Update () {
 		
 	}
+
+    private void saveWinnerAndOpenNextScreen(Player winner)
+    {
+        string winnerName = "";
+        if (winner.Equals(Player.P1))
+        {
+            winnerName = PLAYER1;
+        }
+        else
+        {
+            winnerName = PLAYER2;
+        }
+
+        SaveLoad.Save(winnerName);
+        OpenFinalScreen.LaunchPlayScreen();
+    }
+
 }

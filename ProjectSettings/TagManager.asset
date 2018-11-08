@@ -7,10 +7,15 @@ TagManager:
   - Pipeline
   - Coin
   - Enemy
-  - Start
   - EnemyBoxCollider
   - EnemyCircleCollider
   - DeadZone
+  - BrickTopCollider
+  - BrickBottomCollider
+  - Ground
+  - Brick
+  - Limit
+  - SuperMushroom
   layers:
   - Default
   - TransparentFX

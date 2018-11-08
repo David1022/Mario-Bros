@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/PlayScreen.unity
+- path: Assets/Scenes/FinishScreen.unity
   isLoaded: 1
   isActive: 1

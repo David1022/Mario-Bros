@@ -10,9 +10,7 @@ public class EnemyController : MonoBehaviour {
 
     public float linealSpeed;
     private Rigidbody2D rgbody;
-
-    public LayerMask groundLayer;
-            
+                
 	// Use this for initialization
 	void Start () {
         rgbody = GetComponent<Rigidbody2D>();
@@ -21,18 +19,6 @@ public class EnemyController : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-    }
-
-    private bool IsTouchingTheGround()
-    {
-        if (Physics2D.Raycast(this.transform.position, Vector2.down, DISTANCE_TO_GROUND, groundLayer))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
     }
 
     private void FixedUpdate()
