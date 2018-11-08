@@ -54,10 +54,5 @@ public class MushroomController : MonoBehaviour {
         {
             Destroy(collision.otherCollider.gameObject);
         }
-        else if (collision.collider.CompareTag("Pipeline") || collision.collider.CompareTag("Limit"))
-        {
-            ChangeDirection();
-        }
-
     }
 }

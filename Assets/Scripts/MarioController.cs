@@ -25,6 +25,7 @@ public class MarioController : MonoBehaviour {
     private Animator anim;
     //public Text scoreLabel;
     private Rigidbody2D rgbody;
+    private AudioSource audio;
     private MovementDirection movementDirection;
 
     public LayerMask groundLayer;
@@ -41,6 +42,7 @@ public class MarioController : MonoBehaviour {
 
         //scoreLabel.text = "Score : " + GameManager.coin;
         rgbody = GetComponent<Rigidbody2D>();
+        audio = GetComponent<AudioSource>();
         linealSpeed = LINEAL_SPEED;
         jumpForce = JUMP_FORCE;
         movementDirection = MovementDirection.RIGHT;
@@ -113,6 +115,7 @@ public class MarioController : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Coin")) {
+            audio.Play();
             Destroy(collision.gameObject);
             AddCoin();
         }
