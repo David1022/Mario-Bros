@@ -136,15 +136,19 @@ public class MarioController : MonoBehaviour {
         {
             GameOver();
         }
-        else if(collision.collider.CompareTag("BrickBottomCollider"))
+        else if (collision.collider.CompareTag("BrickBottomCollider"))
         {
             CreateSuperMushroom(collision.collider.GetComponent<Transform>());
         }
+        else if (collision.collider.CompareTag("FinalLevel"))
+        {
+            GameWon();
+        }
     }
 
-    private void CreateSuperMushroom(Transform transform)
+        private void CreateSuperMushroom(Transform transform)
     {
-        Instantiate(superMushroom, transform.position + new Vector3(0,5,0), transform.rotation);
+        Instantiate(superMushroom, transform.position + new Vector3(0,16,0), transform.rotation);
     }
 
     private void AddCoin()
@@ -157,8 +161,13 @@ public class MarioController : MonoBehaviour {
     {
         isAlive = false;
         anim.SetBool("isAlive", isAlive);
+        SaveLoad.Save("", "");
         SceneManager.LoadScene(SCREEN_TO_OPEN);
-
     }
 
+    private void GameWon() 
+    {
+        SaveLoad.Save(GameManager.time.ToString(), scoreLabel.text);
+        SceneManager.LoadScene(SCREEN_TO_OPEN);
+    }
 }

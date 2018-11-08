@@ -8,7 +8,6 @@ public static class SaveLoad
 {
 
     public static string OUTPUT_PATH = "Assets/Resources/OutputData.txt";
-    public static string INPUT_PATH = "InputData";
     public static string FINAL_INPUT_PATH = "OutputData";
 
     public static void Save(string time, String score) {

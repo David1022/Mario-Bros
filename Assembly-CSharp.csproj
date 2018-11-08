@@ -61,7 +61,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\QuestionMushroomController.cs" />
     <Compile Include="Assets\Scripts\EnemyController.cs" />
     <Compile Include="Assets\Scripts\ExitGame.cs" />
     <Compile Include="Assets\Scripts\FinalManager.cs" />
@@ -69,9 +68,12 @@
     <Compile Include="Assets\Scripts\MarioController.cs" />
     <Compile Include="Assets\Scripts\MarioFollower.cs" />
     <Compile Include="Assets\Scripts\MenuScreen.cs" />
+    <Compile Include="Assets\Scripts\MushroomController.cs" />
     <Compile Include="Assets\Scripts\OutputData.cs" />
+    <Compile Include="Assets\Scripts\QuestionMushroomController.cs" />
     <Compile Include="Assets\Scripts\SaveLoad.cs" />
     <Compile Include="Assets\Scripts\StartGame.cs" />
+    <None Include="Assets\Resources\OutputData.txt" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>/Users/davidmendano/Unity/Mario Bros/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

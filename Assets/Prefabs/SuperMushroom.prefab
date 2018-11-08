@@ -21,7 +21,9 @@ GameObject:
   - component: {fileID: 4591374910178748}
   - component: {fileID: 212317840670020276}
   - component: {fileID: 58291336778701574}
+  - component: {fileID: 114664152154497536}
   - component: {fileID: 50860984731463140}
+  - component: {fileID: 68270650988046760}
   m_Layer: 10
   m_Name: SuperMushroom
   m_TagString: SuperMushroom
@@ -36,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1107182919660228}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 31.8, y: 92.9, z: 0}
+  m_LocalPosition: {x: -77.67904, y: 153.42647, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,17 +55,32 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 100
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &58291336778701574
 CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1107182919660228}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.009979477}
+  serializedVersion: 2
+  m_Radius: 0.07002053
+--- !u!68 &68270650988046760
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -75,8 +92,22 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.08
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.054427795, y: -0.06360153}
+  - {x: 0.05867218, y: -0.063601375}
+--- !u!114 &114664152154497536
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1107182919660228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7626d7c447ea64c0fa92e58433d4b84e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  linealSpeed: 0
 --- !u!212 &212317840670020276
 SpriteRenderer:
   m_ObjectHideFlags: 1

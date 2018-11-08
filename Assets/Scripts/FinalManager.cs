@@ -21,16 +21,20 @@ public class FinalManager : MonoBehaviour {
 
         TextAsset data = Resources.Load<TextAsset>(SaveLoad.FINAL_INPUT_PATH);
         outputData = JsonUtility.FromJson<OutputData>(data.ToString());
-        //string time = "Time : " + outputData.time;
-        //string score = "Score : " + outputData.score;
-        string time = "Time : " + 100;
-        string score = "Score : " + 20;
 
+        string time = "";
+        string score = "";
+
+        if ((outputData.time != "") && (outputData.score != "")) 
+        {
+            time = "Time : " + outputData.time;
+            score = outputData.score;
+        }
         timeText.text = time;
         scoreText.text = score;
     }
 
     void Update () {
-		
+		    
 	}
 }
