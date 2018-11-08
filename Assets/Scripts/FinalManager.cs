@@ -10,7 +10,8 @@ public class FinalManager : MonoBehaviour {
     static OutputData outputData;
     public Text timeText;
     public Text scoreText;
-    
+    public Text coinText;
+
     void Start () {
         ReadWinner();
     }
@@ -24,14 +25,17 @@ public class FinalManager : MonoBehaviour {
 
         string time = "";
         string score = "";
+        string coin = "";
 
-        if ((outputData.time != "") && (outputData.score != "")) 
+        if ((outputData.time != "") && (outputData.score != "") && (outputData.coin != null)) 
         {
             time = "Time : " + outputData.time;
             score = outputData.score;
+            coin = outputData.coin;
         }
         timeText.text = time;
         scoreText.text = score;
+        coinText.text = coin;
     }
 
     void Update () {

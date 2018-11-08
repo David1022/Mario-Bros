@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4621261500351634}
   - component: {fileID: 212932545105841600}
   - component: {fileID: 61113365947755112}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: BoxCollider
   m_TagString: EnemyBoxCollider
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4667104837666574}
   - component: {fileID: 212168627816533982}
   - component: {fileID: 58649947108879520}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CircleCollider
   m_TagString: EnemyCircleCollider
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 50172834633779356}
   - component: {fileID: 114851675101260554}
   - component: {fileID: 95206042204007058}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Goomba
   m_TagString: Enemy
   m_Icon: {fileID: 0}

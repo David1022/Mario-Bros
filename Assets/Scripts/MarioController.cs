@@ -16,20 +16,21 @@ public class MarioController : MonoBehaviour {
     private const float JUMP_FORCE = 40000;
     private const float DISTANCE_TO_GROUND = 10f;
     private const string SCREEN_TO_OPEN = "FinishScreen";
+    private const int COIN_SCORE = 10;
 
     public float linealSpeed;
     public float jumpForce;
     public bool isAlive;
 
     private Animator anim;
-    public Text scoreLabel;
-    private int coin;
+    //public Text scoreLabel;
     private Rigidbody2D rgbody;
     private MovementDirection movementDirection;
 
     public LayerMask groundLayer;
 
     public GameObject superMushroom;
+    private GameManager gameManager;
 
     // Use this for initialization
     void Start () {
@@ -38,12 +39,12 @@ public class MarioController : MonoBehaviour {
         anim.SetBool("grounded", true);
         isAlive = true;
 
-        coin = 0;
-        scoreLabel.text = "Score : " + coin;
+        //scoreLabel.text = "Score : " + GameManager.coin;
         rgbody = GetComponent<Rigidbody2D>();
         linealSpeed = LINEAL_SPEED;
         jumpForce = JUMP_FORCE;
         movementDirection = MovementDirection.RIGHT;
+        gameManager = gameObject.GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -80,7 +81,6 @@ public class MarioController : MonoBehaviour {
             GetComponent<SpriteRenderer>().flipX = false;
             movementDirection = MovementDirection.RIGHT;
         }
-        //rgbody.velocity = new Vector2(transform.right.x * linealSpeed, transform.right.y);
         rgbody.velocity = new Vector2(transform.right.x * linealSpeed, rgbody.velocity.y);
     }
 
@@ -136,7 +136,7 @@ public class MarioController : MonoBehaviour {
         {
             GameOver();
         }
-        else if (collision.collider.CompareTag("BrickBottomCollider"))
+        else if (collision.collider.CompareTag("Question"))
         {
             CreateSuperMushroom(collision.collider.GetComponent<Transform>());
         }
@@ -153,21 +153,22 @@ public class MarioController : MonoBehaviour {
 
     private void AddCoin()
     {
-        coin++;
-        scoreLabel.text = "Score : " + coin;
+        gameManager.AddCoin();
+        gameManager.AddScore(COIN_SCORE);
+        //scoreLabel.text = "Score : " + GameManager.coin;
     }
 
     private void GameOver()
     {
         isAlive = false;
         anim.SetBool("isAlive", isAlive);
-        SaveLoad.Save("", "");
+        SaveLoad.Save("", "", "");
         SceneManager.LoadScene(SCREEN_TO_OPEN);
     }
 
     private void GameWon() 
     {
-        SaveLoad.Save(GameManager.time.ToString(), scoreLabel.text);
+        SaveLoad.Save(gameManager.time.ToString(), gameManager.scoreLabel.text, gameManager.coinLabel.text);
         SceneManager.LoadScene(SCREEN_TO_OPEN);
     }
 }

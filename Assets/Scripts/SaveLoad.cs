@@ -10,10 +10,11 @@ public static class SaveLoad
     public static string OUTPUT_PATH = "Assets/Resources/OutputData.txt";
     public static string FINAL_INPUT_PATH = "OutputData";
 
-    public static void Save(string time, String score) {
+    public static void Save(string time, string score, string coin) {
         OutputData outputData = new OutputData();
         outputData.time = time;
         outputData.score = score;
+        outputData.coin = coin;
 
         string json = JsonUtility.ToJson(outputData);
 

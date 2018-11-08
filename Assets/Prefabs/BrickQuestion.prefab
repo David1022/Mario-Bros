@@ -20,10 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4035193621972874}
   - component: {fileID: 212755688060714454}
-  - component: {fileID: 114019113367494694}
+  - component: {fileID: 114046031008259796}
   m_Layer: 9
   m_Name: BrickQuestion
-  m_TagString: Brick
+  m_TagString: Question
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 68312481481090156}
   m_Layer: 9
   m_Name: BottomCollider
-  m_TagString: BrickBottomCollider
+  m_TagString: Question
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,7 +145,7 @@ EdgeCollider2D:
   m_Points:
   - {x: -0.07677032, y: -0.07432907}
   - {x: 0.069213256, y: -0.07432907}
---- !u!114 &114019113367494694
+--- !u!114 &114046031008259796
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}

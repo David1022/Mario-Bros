@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MushroomController : MonoBehaviour {
 
-    private const float LINEAL_SPEED = 90f;
+    private const float LINEAL_SPEED = 100;
     private const float DISTANCE_TO_GROUND = 10f;
 
     public float linealSpeed;
@@ -40,11 +40,24 @@ public class MushroomController : MonoBehaviour {
         }
     }
 
-    private void OnTriggerEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.collider.CompareTag("Pipeline") || collision.collider.CompareTag("Limit"))
+        if (collision.gameObject.CompareTag("Pipeline") || collision.gameObject.CompareTag("Limit"))
         {
             ChangeDirection();
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Player"))
+        {
+            Destroy(collision.otherCollider.gameObject);
+        }
+        else if (collision.collider.CompareTag("Pipeline") || collision.collider.CompareTag("Limit"))
+        {
+            ChangeDirection();
+        }
+
     }
 }
