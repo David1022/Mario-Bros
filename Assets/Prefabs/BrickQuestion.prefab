@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4035193621972874}
   - component: {fileID: 212755688060714454}
-  - component: {fileID: 114046031008259796}
+  - component: {fileID: 114798996862404394}
   m_Layer: 9
   m_Name: BrickQuestion
   m_TagString: Question
@@ -146,21 +146,6 @@ EdgeCollider2D:
   m_Points:
   - {x: -0.07677032, y: -0.07432907}
   - {x: 0.069213256, y: -0.07432907}
---- !u!114 &114046031008259796
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1063172137951098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4fdc2dc4614349fcac2a8746c068afa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  questionBrick: {fileID: 21300002, guid: 12ba438f4a8ce4d929e87c907eca5013, type: 3}
-  emptyQuestionBrick: {fileID: 21300008, guid: 12ba438f4a8ce4d929e87c907eca5013, type: 3}
-  consumed: 0
-  superMushroom: {fileID: 1063172137951098}
 --- !u!114 &114392385678052412
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -177,6 +162,19 @@ MonoBehaviour:
   consumed: 0
   superMushroom: {fileID: 1107182919660228, guid: 9e1cd14605f5e414aab0c95d2ea01cc0,
     type: 2}
+--- !u!114 &114798996862404394
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1063172137951098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c1cd130063f745cda12132e13feb4c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questionBrick: {fileID: 21300002, guid: 12ba438f4a8ce4d929e87c907eca5013, type: 3}
+  emptyQuestionBrick: {fileID: 21300008, guid: 12ba438f4a8ce4d929e87c907eca5013, type: 3}
 --- !u!212 &212127138444853930
 SpriteRenderer:
   m_ObjectHideFlags: 1

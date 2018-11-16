@@ -29,7 +29,7 @@ public class QuestionMushroomController : MonoBehaviour {
         {
             consumed = true;
             CreateSuperMushroom(gameObject.transform);
-            sr.sprite = emptyQuestionBrick;
+            transform.parent.GetComponent<QuestionCollisionDetected>().OnCollisionDetected();
         }
     }
 
