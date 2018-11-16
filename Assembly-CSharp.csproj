@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\MenuScreen.cs" />
     <Compile Include="Assets\Scripts\MushroomController.cs" />
     <Compile Include="Assets\Scripts\OutputData.cs" />
+    <Compile Include="Assets\Scripts\QuestionCollisionDetected.cs" />
     <Compile Include="Assets\Scripts\QuestionMushroomController.cs" />
     <Compile Include="Assets\Scripts\SaveLoad.cs" />
     <Compile Include="Assets\Scripts\StartGame.cs" />

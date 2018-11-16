@@ -42,17 +42,11 @@ public class MushroomController : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Pipeline") || collision.gameObject.CompareTag("Limit"))
+        if (collision.gameObject.CompareTag("Pipeline") || 
+            collision.gameObject.CompareTag("Limit") ||
+            collision.gameObject.CompareTag(""))
         {
             ChangeDirection();
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Player"))
-        {
-            Destroy(collision.otherCollider.gameObject);
         }
     }
 }

@@ -15,38 +15,49 @@ public class QuestionMushroomController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         consumed = false;
-        sr = GetComponent<SpriteRenderer>();
+        sr = GetComponentInParent<SpriteRenderer>();
         sr.sprite = questionBrick;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (consumed) {
-            sr.sprite = emptyQuestionBrick;
-        }
 	}
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.otherCollider.CompareTag("BrickBottomCollider"))
+        if (!consumed)
         {
             consumed = true;
-            CreateSuperMushroom(collision.otherCollider.transform);
+            CreateSuperMushroom(gameObject.transform);
+            sr.sprite = emptyQuestionBrick;
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("BrickBottomCollider"))
         {
-            consumed = true;
-            CreateSuperMushroom(collision.transform);
+            if (!consumed)
+            {
+                consumed = true;
+                CreateSuperMushroom(collision.transform);
+                sr.sprite = emptyQuestionBrick;
+            }
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        
+    }
     private void CreateSuperMushroom(Transform transform)
     {
-        Instantiate(superMushroom, transform.position + new Vector3(0, 5, 0), transform.rotation);
+        Instantiate(superMushroom, transform.position + new Vector3(0, 16, 0), transform.rotation);
+    }
+
+    public void ChangeImage()
+    {
+        sr.sprite = emptyQuestionBrick;
     }
 
 }

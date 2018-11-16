@@ -16,22 +16,24 @@ public class MarioController : MonoBehaviour {
     private const float JUMP_FORCE = 40000;
     private const float DISTANCE_TO_GROUND = 10f;
     private const string SCREEN_TO_OPEN = "FinishScreen";
-    private const int COIN_SCORE = 10;
 
     public float linealSpeed;
     public float jumpForce;
     public bool isAlive;
 
     private Animator anim;
-    //public Text scoreLabel;
     private Rigidbody2D rgbody;
     private AudioSource audio;
+    public AudioClip coinAudio;
+    public AudioClip jumpAudio;
+    public AudioClip powerUpAudio;
+    public AudioClip killEnemyAudio;
+
     private MovementDirection movementDirection;
 
     public LayerMask groundLayer;
 
     public GameObject superMushroom;
-    private GameManager gameManager;
 
     // Use this for initialization
     void Start () {
@@ -42,11 +44,14 @@ public class MarioController : MonoBehaviour {
 
         //scoreLabel.text = "Score : " + GameManager.coin;
         rgbody = GetComponent<Rigidbody2D>();
+
         audio = GetComponent<AudioSource>();
+        //coinAudio = audio[0];
+        //jumpAudio = audio[1];
+
         linealSpeed = LINEAL_SPEED;
         jumpForce = JUMP_FORCE;
         movementDirection = MovementDirection.RIGHT;
-        gameManager = gameObject.GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -100,6 +105,7 @@ public class MarioController : MonoBehaviour {
         if (IsTouchingTheGround())
         {
             rgbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            audio.PlayOneShot(jumpAudio);
         }
     }
 
@@ -115,10 +121,20 @@ public class MarioController : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Coin")) {
-            audio.Play();
+            audio.PlayOneShot(coinAudio);
             Destroy(collision.gameObject);
             AddCoin();
+        } else if (collision.CompareTag("SuperMushroom"))
+        {
+            TakeSuperMushroom(collision.gameObject);
         }
+    }
+
+    private void TakeSuperMushroom(GameObject gameObject)
+    {
+        audio.PlayOneShot(powerUpAudio);
+        GameManager.instance.AddScore(GameManager.MUSHROOM_SCORE);
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -127,8 +143,9 @@ public class MarioController : MonoBehaviour {
         {
             if (collision.collider.CompareTag("EnemyBoxCollider"))
             {
+                audio.PlayOneShot(killEnemyAudio);
+                GameManager.instance.AddScore(GameManager.ENEMY_DEATH_SCORE);
                 Destroy(collision.gameObject);
-
             }
             else if (collision.collider.CompareTag("EnemyCircleCollider"))
             {
@@ -139,39 +156,42 @@ public class MarioController : MonoBehaviour {
         {
             GameOver();
         }
-        else if (collision.collider.CompareTag("Question"))
-        {
-            CreateSuperMushroom(collision.collider.GetComponent<Transform>());
-        }
         else if (collision.collider.CompareTag("FinalLevel"))
         {
             GameWon();
         }
+        else if (collision.collider.CompareTag("SuperMushroom"))
+        {
+            TakeSuperMushroom(collision.gameObject);
+        }
+        else if (collision.collider.CompareTag("BrickBottomCollider"))
+        {
+        }
     }
 
-        private void CreateSuperMushroom(Transform transform)
+    private void CreateSuperMushroom(Transform transform)
     {
         Instantiate(superMushroom, transform.position + new Vector3(0,16,0), transform.rotation);
     }
 
     private void AddCoin()
     {
-        gameManager.AddCoin();
-        gameManager.AddScore(COIN_SCORE);
-        //scoreLabel.text = "Score : " + GameManager.coin;
+        GameManager.instance.AddCoin();
+        GameManager.instance.AddScore(GameManager.COIN_SCORE);
     }
 
     private void GameOver()
     {
         isAlive = false;
         anim.SetBool("isAlive", isAlive);
-        SaveLoad.Save("", "", "");
+        //SaveLoad.Save("", "", "");
+        SaveLoad.Save(GameManager.instance.time.ToString(), GameManager.instance.score.ToString(), GameManager.instance.coin.ToString());
         SceneManager.LoadScene(SCREEN_TO_OPEN);
     }
 
     private void GameWon() 
     {
-        SaveLoad.Save(gameManager.time.ToString(), gameManager.scoreLabel.text, gameManager.coinLabel.text);
+        SaveLoad.Save(GameManager.instance.time.ToString(), GameManager.instance.score.ToString(), GameManager.instance.coin.ToString());
         SceneManager.LoadScene(SCREEN_TO_OPEN);
     }
 }

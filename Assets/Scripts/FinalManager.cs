@@ -29,9 +29,9 @@ public class FinalManager : MonoBehaviour {
 
         if ((outputData.time != "") && (outputData.score != "") && (outputData.coin != null)) 
         {
-            time = "Time : " + outputData.time;
-            score = outputData.score;
-            coin = outputData.coin;
+            time = "Time : " + outputData.time + " s";
+            score = "Score : " + outputData.score;
+            coin = "Coin : " + outputData.coin + " $";
         }
         timeText.text = time;
         scoreText.text = score;
