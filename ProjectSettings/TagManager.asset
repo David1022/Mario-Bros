@@ -18,6 +18,9 @@ TagManager:
   - SuperMushroom
   - FinalLevel
   - Question
+  - Semistairs
+  - QuestionSuperMushroom
+  - QuestionCoin
   layers:
   - Default
   - TransparentFX

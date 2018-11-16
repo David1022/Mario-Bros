@@ -28,7 +28,13 @@ public class EnemyController : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        ChangeDirection();
+        if (collision.collider.CompareTag("Pipeline") ||
+            collision.collider.CompareTag("Limit") ||
+            collision.collider.CompareTag("EnemyCircleCollider") ||
+            collision.collider.CompareTag("Semistairs"))
+        {
+            ChangeDirection();
+        }
     }
 
     private void ChangeDirection()

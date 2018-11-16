@@ -44,7 +44,7 @@ public class MushroomController : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Pipeline") || 
             collision.gameObject.CompareTag("Limit") ||
-            collision.gameObject.CompareTag(""))
+            collision.gameObject.CompareTag("Semistairs"))
         {
             ChangeDirection();
         }

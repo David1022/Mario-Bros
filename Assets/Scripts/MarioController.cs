@@ -184,7 +184,6 @@ public class MarioController : MonoBehaviour {
     {
         isAlive = false;
         anim.SetBool("isAlive", isAlive);
-        //SaveLoad.Save("", "", "");
         SaveLoad.Save(GameManager.instance.time.ToString(), GameManager.instance.score.ToString(), GameManager.instance.coin.ToString());
         SceneManager.LoadScene(SCREEN_TO_OPEN);
     }

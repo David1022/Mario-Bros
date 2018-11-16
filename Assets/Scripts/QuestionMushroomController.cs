@@ -33,23 +33,6 @@ public class QuestionMushroomController : MonoBehaviour {
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("BrickBottomCollider"))
-        {
-            if (!consumed)
-            {
-                consumed = true;
-                CreateSuperMushroom(collision.transform);
-                sr.sprite = emptyQuestionBrick;
-            }
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        
-    }
     private void CreateSuperMushroom(Transform transform)
     {
         Instantiate(superMushroom, transform.position + new Vector3(0, 16, 0), transform.rotation);

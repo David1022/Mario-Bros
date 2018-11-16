@@ -1,18 +1,22 @@
 ﻿<Properties StartupConfiguration="{1C3BC80D-809E-4222-5C5C-198120EA72F2}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/QuestionCollisionDetected.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/QuestionCoinController.cs">
     <Files>
       <File FileName="Assets/Scripts/GameManager.cs" Line="65" Column="1" />
-      <File FileName="Assets/Scripts/MarioController.cs" Line="159" Column="1" />
-      <File FileName="Assets/Scripts/QuestionMushroomController.cs" Line="34" Column="10" />
-      <File FileName="Assets/Scripts/QuestionCollisionDetected.cs" Line="17" Column="22" />
+      <File FileName="Assets/Scripts/MarioController.cs" Line="159" Column="49" />
+      <File FileName="Assets/Scripts/QuestionMushroomController.cs" Line="19" Column="35" />
+      <File FileName="Assets/Scripts/QuestionCollisionDetected.cs" Line="22" Column="38" />
+      <File FileName="Assets/Scripts/MushroomController.cs" Line="47" Column="56" />
+      <File FileName="Assets/Scripts/QuestionCoinController.cs" Line="29" Column="1" />
+      <File FileName="Assets/Scripts/EnemyController.cs" Line="30" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/davidmendano/Unity/Mario Bros/Assets/Scripts/QuestionMushroomController.cs" relfile="Assets/Scripts/QuestionMushroomController.cs" line="39" column="1" />
       <Breakpoint file="/Users/davidmendano/Unity/Mario Bros/Assets/Scripts/QuestionMushroomController.cs" relfile="Assets/Scripts/QuestionMushroomController.cs" line="28" column="1" />
+      <Breakpoint file="/Users/davidmendano/Unity/Mario Bros/Assets/Scripts/QuestionCollisionDetected.cs" relfile="Assets/Scripts/QuestionCollisionDetected.cs" line="24" column="1" />
+      <Breakpoint file="/Users/davidmendano/Unity/Mario Bros/Assets/Scripts/QuestionCoinController.cs" relfile="Assets/Scripts/QuestionCoinController.cs" line="29" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
